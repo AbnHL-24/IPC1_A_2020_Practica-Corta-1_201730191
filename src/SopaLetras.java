@@ -16,7 +16,7 @@ public class SopaLetras {
 
     public static String palabraOriginal;
     public static String palabraModificada;
-    public static String vidas;
+    public static int vidas;
     public static Scanner sc = new Scanner(System.in);
 
 
@@ -29,10 +29,10 @@ public class SopaLetras {
         System.out.println(PEDIR_PALABRA_MODIFICADA);
         palabraModificada = sc.nextLine();
 
-        vidas = 3
+        vidas = 3;
 
         while (vidas > 0) {
-            if (palabraOriginal == palabraModificada) {
+            if (palabraOriginal.equals(palabraModificada)) {
                 System.out.println(GANO_EL_JUEGO);
                 //Llamar Punteo.sumarPunto
                 opciones();
@@ -47,11 +47,11 @@ public class SopaLetras {
     }
 
     public static void opciones() {
-        String opcion;
+        int opcion;
         System.out.println(OPCIONES_FINALES);
-        opcion = sc.nextLine();
+        opcion = Integer.parseInt(sc.nextLine());
 
-        if(opcion ==1) {
+        if(opcion == 1) {
             SopaLetras.juego();
         }
         else if(opcion == 2) {
