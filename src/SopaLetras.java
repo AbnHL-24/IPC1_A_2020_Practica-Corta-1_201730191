@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class SopaLetras {
 
@@ -88,7 +88,7 @@ public class SopaLetras {
         for (int i = 0; i < letras.length; i++) {
             System.out.print(palabraOriginal.charAt(letras[i]));
         }
-    }
+    }//prueba
 
     public static boolean comparar(int iAnt, int letra, int[] letras)
     {

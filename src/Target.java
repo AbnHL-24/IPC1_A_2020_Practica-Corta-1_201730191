@@ -1,7 +1,7 @@
+import java.util.Random;
 import java.util.Scanner;
-import  java.util.Random;
 
-public class Target {
+public class Target extends SopaLetras {
 
     public static final String INSTRUCCIONES = "Cada jugador escoge un tiro, los puntos de caa tiro se mostraran " +
                                                 "a la hora de escoger, el primero en llegar a 200 puntos gana.";
