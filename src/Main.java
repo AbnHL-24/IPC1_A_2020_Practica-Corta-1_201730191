@@ -7,7 +7,7 @@ public class Main {
     public static final String ELECCION_INCORRECTA = "leccion incorrecta, por favor ingrese una opcion valida.";
     public static final String DESPEDIDA = "Gracias por jugar, adios.";
     public static int juegoEscogido;
-    public static Scanner sc = new Scanner(System.in);
+    public static Scanner sc0 = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println(MENSAJE_BIENVENIDA);
@@ -16,17 +16,17 @@ public class Main {
 
     public static void menuJuegos() {
         System.out.println(LISTA_DE_JUEGOS);
-        juegoEscogido = Integer.parseInt(sc.nextLine());
+        juegoEscogido = Integer.parseInt(sc0.nextLine());
         if(juegoEscogido ==1) {
             SopaLetras.juego();
             System.out.println("sopaLetras");
         }
         else if(juegoEscogido == 2) {
-            //target.juego();
+            //Target.juego();
             System.out.println("target");
         }
         else if(juegoEscogido == 3) {
-            //veinteCuarentaOcho.juego();
+            //VeinteCuarentaOcho.juego();
             System.out.println("veinteCuarentaOcho");
         }
         else if(juegoEscogido == 4) {

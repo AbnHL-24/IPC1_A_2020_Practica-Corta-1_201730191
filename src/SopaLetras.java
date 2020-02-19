@@ -1,9 +1,10 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class SopaLetras {
 
     public static final String INSTRUCCIONES = "Una tercera persona debe ingresar una palabra, " +
-                                                "esta se imprimira con las letras revueltas y " +
+                                                "esta sera impresa con las letras revueltas y " +
                                                 "usted tratara de adivinar la palabra ingresasa, tiene 3 intentos.";
     public static final String PEDIR_PALABRA_CORRECTA = "Por favor ingrese una palabra.";
     public static final String PEDIR_PALABRA_MODIFICADA = "Por favor ingrese la palabra que cree es correcta";
@@ -17,21 +18,22 @@ public class SopaLetras {
     public static String palabraOriginal;
     public static String palabraModificada;
     public static int vidas;
-    public static Scanner sc = new Scanner(System.in);
+    public static Scanner sc1 = new Scanner(System.in);
+    public static Random rd = new Random();
 
 
     public static void juego() {
         System.out.println(INSTRUCCIONES);
         System.out.println(PEDIR_PALABRA_CORRECTA);
-        palabraOriginal = sc.nextLine();
-        palabraOriginal = palabraModificada; // Prueba
-        System.out.println(palabraModificada);
-        System.out.println(PEDIR_PALABRA_MODIFICADA);
-        palabraModificada = sc.nextLine();
+
+        cambiarpalabra();
 
         vidas = 3;
 
         while (vidas > 0) {
+            System.out.println(palabraModificada);
+            System.out.println(PEDIR_PALABRA_MODIFICADA);
+            palabraModificada = sc1.nextLine();
             if (palabraOriginal.equals(palabraModificada)) {
                 System.out.println(GANO_EL_JUEGO);
                 //Llamar Punteo.sumarPunto
@@ -49,7 +51,7 @@ public class SopaLetras {
     public static void opciones() {
         int opcion;
         System.out.println(OPCIONES_FINALES);
-        opcion = Integer.parseInt(sc.nextLine());
+        opcion = Integer.parseInt(sc1.nextLine());
 
         if(opcion == 1) {
             SopaLetras.juego();
@@ -72,4 +74,34 @@ public class SopaLetras {
         System.exit(cero);
     }
 
+    public static void cambiarpalabra() {
+        palabraOriginal = sc1.nextLine();
+        int[] letras = new int[palabraOriginal.length()];
+
+        for (int i = 0; i < letras.length; i++) {
+            letras[i]= rd.nextInt(letras.length);
+            //mientras comparar sea verdadero crear nuevo random
+            while(comparar(i-1, letras[i], letras)){
+                letras[i]= rd.nextInt(letras.length);
+            }
+        }
+        for (int i = 0; i < letras.length; i++) {
+            System.out.print(palabraOriginal.charAt(letras[i]));
+        }
+    }
+
+    public static boolean comparar(int iAnt, int letra, int[] letras)
+    {
+        boolean paso;
+        if (iAnt<0){
+            paso = false;
+        }
+        else if (letra != letras[iAnt]){
+            paso = comparar(iAnt-1, letra, letras);
+        }
+        else {
+            paso = true;
+        }
+        return paso;
+    }
 }
