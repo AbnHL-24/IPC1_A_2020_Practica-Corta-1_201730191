@@ -19,11 +19,11 @@ public class Main {
         juegoEscogido = Integer.parseInt(sc0.nextLine());
         if(juegoEscogido ==1) {
             SopaLetras.juego();
-            System.out.println("sopaLetras");
+            //System.out.println("sopaLetras");
         }
         else if(juegoEscogido == 2) {
-            //Target.juego();
-            System.out.println("target");
+            Target.juego();
+            //System.out.println("target");
         }
         else if(juegoEscogido == 3) {
             //VeinteCuarentaOcho.juego();
